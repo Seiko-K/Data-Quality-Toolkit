@@ -2,6 +2,8 @@
 
 Power Query based data quality toolkit for customer, product and research datasets.
 
+---
+
 ## Features
 
 ✓ Remove Duplicates
@@ -42,6 +44,61 @@ Power Query based data quality toolkit for customer, product and research datase
 - Author normalization
 - Journal cleanup
 - Metadata consistency checks
+
+---
+
+## Repository Structure
+
+```text
+samples/
+    customer_master.csv
+
+queries/
+    CustomerValidation.m
+
+README.md
+
+LICENSE
+```
+
+---
+
+## Included Examples
+
+### CustomerValidation.m
+
+Features
+
+- Trim whitespace
+- Remove duplicates
+- Detect missing values
+- Normalize customer names
+
+### Sample Dataset
+
+customer_master.csv
+
+Example fields
+
+- CustomerID
+- Name
+- Email
+
+---
+
+## Technical Highlights
+
+✓ Power Query (M)
+
+✓ CSV Import
+
+✓ Duplicate Detection
+
+✓ Missing Value Checks
+
+✓ Text Normalization
+
+✓ Reusable Validation Pipelines
 
 ---
 
