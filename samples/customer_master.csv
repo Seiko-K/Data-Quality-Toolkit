@@ -1,0 +1,6 @@
+CustomerID,Name,Email
+1, John Smith ,john@example.com
+2,Jane Doe,jane@example.com
+2,Jane Doe,jane@example.com
+3,,foo@example.com
+4, Alice Brown ,alice@example.com
