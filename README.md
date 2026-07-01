@@ -16,6 +16,8 @@ Built with Power Query (M) for customer, product and research datasets.
 
 ✓ Missing Value Detection
 
+✓ Validation Status Flags
+
 ✓ Text Normalization
 
 ✓ Validation Rules
@@ -35,16 +37,20 @@ Built with Power Query (M) for customer, product and research datasets.
 ### Customer Master Validation
 
 - Duplicate customer detection
-- Missing required fields
+- Missing customer names
+- Missing email addresses
+- Validation status flags
 - Standardized names
 - Address cleanup
 
 ### Product Catalog Validation
 
 - SKU normalization
+- Missing product information
 - Category cleanup
-- Missing descriptions
 - Duplicate products
+- Price validation
+- Product quality checks
 
 ### Research Metadata Validation
 
@@ -63,6 +69,7 @@ queries/
 
 samples/
     customer_master.csv
+    product_catalog.csv
 
 README.md
 
@@ -79,8 +86,10 @@ Features
 
 - Trim whitespace
 - Remove duplicates
-- Detect missing values
-- Normalize customer names
+- Detect missing names
+- Detect missing emails
+- Add validation status flags
+- Normalize customer records
 
 Location
 
@@ -88,15 +97,41 @@ Location
 queries/CustomerValidation.m
 ```
 
-### Sample Dataset
+### Sample Datasets
 
-customer_master.csv
+#### customer_master.csv
 
 Example fields
 
 - CustomerID
 - Name
 - Email
+
+Validation scenarios
+
+- Duplicate CustomerID
+- Missing Name
+- Missing Email
+- Text normalization
+
+#### product_catalog.csv
+
+Example fields
+
+- ProductID
+- SKU
+- ProductName
+- Category
+- Price
+
+Validation scenarios
+
+- Duplicate ProductID
+- Missing SKU
+- Missing Product Name
+- Missing Category
+- Invalid Price
+- Text normalization
 
 ---
 
@@ -111,6 +146,8 @@ Example fields
 ✓ Duplicate Detection
 
 ✓ Missing Value Checks
+
+✓ Validation Status Flags
 
 ✓ Text Normalization
 
@@ -142,7 +179,17 @@ Example fields
 
 □ Batch Processing
 
+□ ProductValidation.m
+
+□ ResearchMetadataValidation.m
+
 □ Additional Validation Queries
+
+---
+
+## License
+
+MIT © 2026 Seiko K
 
 ---
 
