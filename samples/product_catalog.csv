@@ -1,0 +1,7 @@
+ProductID,SKU,ProductName,Category,Price
+1, SKU-001 ,Notebook,Stationery,500
+2,SKU-002,Pen,Stationery,120
+2,SKU-002,Pen,Stationery,120
+3,,Eraser,Stationery,80
+4,SKU-004,,Office Supplies,300
+5,SKU-005,Desk Lamp,,2500
