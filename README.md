@@ -4,7 +4,9 @@
 
 # Data Quality Toolkit
 
-Power Query based data quality toolkit for customer, product and research datasets.
+Power Query based toolkit for data cleaning, validation and transformation workflows.
+
+Built with Power Query (M) for customer, product and research datasets.
 
 ---
 
@@ -23,6 +25,8 @@ Power Query based data quality toolkit for customer, product and research datase
 ✓ Reporting
 
 ✓ Power Query (M)
+
+✓ Reusable Validation Pipelines
 
 ---
 
@@ -54,11 +58,11 @@ Power Query based data quality toolkit for customer, product and research datase
 ## Repository Structure
 
 ```text
-samples/
-    customer_master.csv
-
 queries/
     CustomerValidation.m
+
+samples/
+    customer_master.csv
 
 README.md
 
@@ -78,6 +82,12 @@ Features
 - Detect missing values
 - Normalize customer names
 
+Location
+
+```text
+queries/CustomerValidation.m
+```
+
 ### Sample Dataset
 
 customer_master.csv
@@ -94,6 +104,8 @@ Example fields
 
 ✓ Power Query (M)
 
+✓ ETL Workflows
+
 ✓ CSV Import
 
 ✓ Duplicate Detection
@@ -103,6 +115,10 @@ Example fields
 ✓ Text Normalization
 
 ✓ Reusable Validation Pipelines
+
+✓ Metadata Processing
+
+✓ Data Quality Automation
 
 ---
 
@@ -125,6 +141,8 @@ Example fields
 □ Excel Export
 
 □ Batch Processing
+
+□ Additional Validation Queries
 
 ---
 
