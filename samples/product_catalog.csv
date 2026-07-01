@@ -5,3 +5,8 @@ ProductID,SKU,ProductName,Category,Price
 3,,Eraser,Stationery,80
 4,SKU-004,,Office Supplies,300
 5,SKU-005,Desk Lamp,,2500
+6, SKU-006 ,Chair,Furniture,0
+7,SKU-007,Monitor,Electronics,-100
+8,SKU-008,USB Cable,,900
+9,SKU-009, Mouse ,Electronics,1500
+10,SKU-010,Keyboard,Electronics,
