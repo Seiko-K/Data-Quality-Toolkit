@@ -111,12 +111,6 @@ let
             type text
         ),
 
-    RemovedHelperCount =
-        Table.RemoveColumns(
-            AddedStatus,
-            {"Count"}
-        )
-
     AddedIssueReason =
         Table.AddColumn(
             AddedStatus,
@@ -141,7 +135,7 @@ let
         Table.RemoveColumns(
             AddedIssueReason,
             {"Count"}
-        )   
+        )
 
 in
     RemovedHelperCount
