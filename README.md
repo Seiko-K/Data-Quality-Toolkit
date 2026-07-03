@@ -18,6 +18,8 @@ Built with Power Query (M) for customer, product and research datasets.
 
 ✓ Validation Status Flags
 
+✓ Issue Reason Generation
+
 ✓ Text Normalization
 
 ✓ Validation Rules
@@ -51,6 +53,7 @@ Built with Power Query (M) for customer, product and research datasets.
 - Duplicate products
 - Price validation
 - Product quality checks
+- Issue reason generation
 
 ### Research Metadata Validation
 
@@ -66,6 +69,7 @@ Built with Power Query (M) for customer, product and research datasets.
 ```text
 queries/
     CustomerValidation.m
+    ProductValidation.m
 
 samples/
     customer_master.csv
@@ -85,7 +89,8 @@ LICENSE
 Features
 
 - Trim whitespace
-- Remove duplicates
+- Convert empty values to null
+- Detect duplicate customer records
 - Detect missing names
 - Detect missing emails
 - Add validation status flags
@@ -95,6 +100,26 @@ Location
 
 ```text
 queries/CustomerValidation.m
+```
+
+### ProductValidation.m
+
+Features
+
+- Trim whitespace
+- Convert empty values to null
+- Detect duplicate ProductID
+- Detect missing SKU
+- Detect missing product names
+- Detect missing categories
+- Detect invalid prices
+- Add validation status flags
+- Generate issue reason messages
+
+Location
+
+```text
+queries/ProductValidation.m
 ```
 
 ### Sample Datasets
@@ -131,6 +156,7 @@ Validation scenarios
 - Missing Product Name
 - Missing Category
 - Invalid Price
+- Issue Reason Generation
 - Text normalization
 
 ---
@@ -149,11 +175,15 @@ Validation scenarios
 
 ✓ Validation Status Flags
 
+✓ Issue Reason Generation
+
 ✓ Text Normalization
 
 ✓ Reusable Validation Pipelines
 
 ✓ Metadata Processing
+
+✓ Robust Number Conversion
 
 ✓ Data Quality Automation
 
@@ -179,9 +209,9 @@ Validation scenarios
 
 □ Batch Processing
 
-□ ProductValidation.m
-
 □ ResearchMetadataValidation.m
+
+□ SupplierValidation.m
 
 □ Additional Validation Queries
 
