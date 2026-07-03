@@ -117,5 +117,31 @@ let
             {"Count"}
         )
 
+    AddedIssueReason =
+        Table.AddColumn(
+            AddedStatus,
+            "IssueReason",
+            each
+                Text.Combine(
+                    List.RemoveNulls(
+                        {
+                            if [IsDuplicateProductID] then "Duplicate ProductID" else null,
+                            if [MissingSKU] then "Missing SKU" else null,
+                            if [MissingProductName] then "Missing ProductName" else null,
+                            if [MissingCategory] then "Missing Category" else null,
+                            if [InvalidPrice] then "Invalid Price" else null
+                        }
+                    ),
+                    "; "
+                ),
+            type text
+        ),
+
+    RemovedHelperCount =
+        Table.RemoveColumns(
+            AddedIssueReason,
+            {"Count"}
+        )   
+
 in
     RemovedHelperCount
