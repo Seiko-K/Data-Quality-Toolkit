@@ -29,17 +29,17 @@ let
             {"ProductID", "SKU", "ProductName", "Category", "Price"}
         ),
 
-    ChangedTypes =
-        Table.TransformColumnTypes(
+    AddedPriceNumber =
+        Table.AddColumn(
             EmptyToNull,
-            {
-                {"Price", type number}
-            }
+            "PriceNumber",
+            each try Number.FromText([Price]) otherwise null,
+            type nullable number
         ),
 
     Grouped =
         Table.Group(
-            ChangedTypes,
+            AddedPriceNumber,
             {"ProductID"},
             {
                 {"Rows", each _, type table},
@@ -51,8 +51,8 @@ let
         Table.ExpandTableColumn(
             Grouped,
             "Rows",
-            {"SKU", "ProductName", "Category", "Price"},
-            {"SKU", "ProductName", "Category", "Price"}
+            {"SKU", "ProductName", "Category", "Price", "PriceNumber"},
+            {"SKU", "ProductName", "Category", "Price", "PriceNumber"}
         ),
 
     AddedDuplicateFlag =
@@ -91,7 +91,7 @@ let
         Table.AddColumn(
             AddedMissingCategory,
             "InvalidPrice",
-            each [Price] = null or [Price] <= 0,
+            each [PriceNumber] = null or [PriceNumber] <= 0,
             type logical
         ),
 
@@ -116,26 +116,29 @@ let
             AddedStatus,
             "IssueReason",
             each
-                Text.Combine(
-                    List.RemoveNulls(
-                        {
-                            if [IsDuplicateProductID] then "Duplicate ProductID" else null,
-                            if [MissingSKU] then "Missing SKU" else null,
-                            if [MissingProductName] then "Missing ProductName" else null,
-                            if [MissingCategory] then "Missing Category" else null,
-                            if [InvalidPrice] then "Invalid Price" else null
-                        }
-                    ),
-                    "; "
-                ),
-            type text
+                let
+                    reasons =
+                        List.RemoveNulls(
+                            {
+                                if [IsDuplicateProductID] then "Duplicate ProductID" else null,
+                                if [MissingSKU] then "Missing SKU" else null,
+                                if [MissingProductName] then "Missing ProductName" else null,
+                                if [MissingCategory] then "Missing Category" else null,
+                                if [InvalidPrice] then "Invalid Price" else null
+                            }
+                        )
+                in
+                    if List.Count(reasons) = 0
+                    then null
+                    else Text.Combine(reasons, "; "),
+            type nullable text
         ),
 
-    RemovedHelperCount =
+    RemovedHelperColumns =
         Table.RemoveColumns(
             AddedIssueReason,
             {"Count"}
         )
 
 in
-    RemovedHelperCount
+    RemovedHelperColumns
