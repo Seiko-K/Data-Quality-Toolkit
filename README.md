@@ -32,6 +32,10 @@ Built with Power Query (M) for customer, product and research datasets.
 
 ✓ Reusable Validation Pipelines
 
+✓ Research Metadata Validation
+
+✓ DOI Quality Checks
+
 ---
 
 ## Example Use Cases
@@ -58,8 +62,11 @@ Built with Power Query (M) for customer, product and research datasets.
 ### Research Metadata Validation
 
 - DOI parsing
-- Author normalization
-- Journal cleanup
+- Duplicate DOI detection
+- Missing DOI detection
+- Missing titles
+- Missing authors
+- Validation status generation
 - Metadata consistency checks
 
 ---
@@ -70,10 +77,12 @@ Built with Power Query (M) for customer, product and research datasets.
 queries/
     CustomerValidation.m
     ProductValidation.m
+    ResearchMetadataValidation.m
 
 samples/
     customer_master.csv
     product_catalog.csv
+    research_metadata.csv
 
 README.md
 
@@ -102,6 +111,8 @@ Location
 queries/CustomerValidation.m
 ```
 
+---
+
 ### ProductValidation.m
 
 Features
@@ -122,9 +133,32 @@ Location
 queries/ProductValidation.m
 ```
 
-### Sample Datasets
+---
 
-#### customer_master.csv
+### ResearchMetadataValidation.m
+
+Features
+
+- Trim whitespace
+- Convert empty values to null
+- Detect duplicate DOI
+- Detect missing DOI
+- Detect missing titles
+- Detect missing authors
+- Add validation status flags
+- Generate issue reason messages
+
+Location
+
+```text
+queries/ResearchMetadataValidation.m
+```
+
+---
+
+## Sample Datasets
+
+### customer_master.csv
 
 Example fields
 
@@ -139,7 +173,9 @@ Validation scenarios
 - Missing Email
 - Text normalization
 
-#### product_catalog.csv
+---
+
+### product_catalog.csv
 
 Example fields
 
@@ -158,6 +194,27 @@ Validation scenarios
 - Invalid Price
 - Issue Reason Generation
 - Text normalization
+
+---
+
+### research_metadata.csv
+
+Example fields
+
+- DOI
+- Title
+- Author
+- Journal
+- Year
+
+Validation scenarios
+
+- Duplicate DOI
+- Missing DOI
+- Missing Title
+- Missing Author
+- Validation Status
+- Issue Reason Generation
 
 ---
 
@@ -182,6 +239,8 @@ Validation scenarios
 ✓ Reusable Validation Pipelines
 
 ✓ Metadata Processing
+
+✓ DOI Quality Checks
 
 ✓ Robust Number Conversion
 
@@ -209,9 +268,9 @@ Validation scenarios
 
 □ Batch Processing
 
-□ ResearchMetadataValidation.m
-
 □ SupplierValidation.m
+
+□ SalesValidation.m
 
 □ Additional Validation Queries
 
