@@ -1,8 +1,1 @@
-SupplierID,SupplierName,Email,Country,Phone
-1,ABC Corp,contact@abc.com,USA,123456
-2,XYZ Ltd,sales@xyz.com,UK,987654
-2,XYZ Ltd,sales@xyz.com,UK,987654
-3,,support@test.com,Japan,111111
-4,Global Inc,,Germany,222222
-5,Tech Supply,info@tech.com,,333333
-6,Office Goods,office@goods.com,Canada,
+
