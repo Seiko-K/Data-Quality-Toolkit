@@ -1,12 +1,12 @@
-![Version](https://img.shields.io/badge/version-v0.1-blue)
+![Version](https://img.shields.io/badge/version-v0.4-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 # Data Quality Toolkit
 
-Power Query based toolkit for data cleaning, validation and transformation workflows.
+Reusable Power Query toolkit for data cleaning, validation, and transformation workflows.
 
-Built with Power Query (M) for customer, product and research datasets.
+Built with Power Query (M) for customer, product, supplier, and research datasets.
 
 ---
 
@@ -36,6 +36,8 @@ Built with Power Query (M) for customer, product and research datasets.
 
 ✓ DOI Quality Checks
 
+✓ Supplier Validation
+
 ---
 
 ## Example Use Cases
@@ -59,6 +61,15 @@ Built with Power Query (M) for customer, product and research datasets.
 - Product quality checks
 - Issue reason generation
 
+### Supplier Master Validation
+
+- Duplicate supplier detection
+- Missing supplier names
+- Missing email addresses
+- Missing countries
+- Validation status generation
+- Supplier data quality checks
+
 ### Research Metadata Validation
 
 - DOI parsing
@@ -78,11 +89,13 @@ queries/
     CustomerValidation.m
     ProductValidation.m
     ResearchMetadataValidation.m
+    SupplierValidation.m
 
 samples/
     customer_master.csv
     product_catalog.csv
     research_metadata.csv
+    supplier_master.csv
 
 README.md
 
@@ -91,7 +104,7 @@ LICENSE
 
 ---
 
-## Included Examples
+## Included Modules
 
 ### CustomerValidation.m
 
@@ -131,6 +144,27 @@ Location
 
 ```text
 queries/ProductValidation.m
+```
+
+---
+
+### SupplierValidation.m
+
+Features
+
+- Trim whitespace
+- Convert empty values to null
+- Detect duplicate SupplierID
+- Detect missing supplier names
+- Detect missing email addresses
+- Detect missing countries
+- Add validation status flags
+- Generate issue reason messages
+
+Location
+
+```text
+queries/SupplierValidation.m
 ```
 
 ---
@@ -197,6 +231,27 @@ Validation scenarios
 
 ---
 
+### supplier_master.csv
+
+Example fields
+
+- SupplierID
+- SupplierName
+- Email
+- Country
+- Phone
+
+Validation scenarios
+
+- Duplicate SupplierID
+- Missing Supplier Name
+- Missing Email
+- Missing Country
+- Validation Status
+- Issue Reason Generation
+
+---
+
 ### research_metadata.csv
 
 Example fields
@@ -258,6 +313,26 @@ Validation scenarios
 
 ## Roadmap
 
+### v0.5
+
+□ InventoryValidation.m
+
+### v0.6
+
+□ InvoiceValidation.m
+
+### v0.7
+
+□ AddressValidation.m
+
+### v0.8
+
+□ SalesValidation.m
+
+### Future
+
+□ Shared Validation Functions
+
 □ Validation Dashboard
 
 □ Error Reporting
@@ -268,11 +343,17 @@ Validation scenarios
 
 □ Batch Processing
 
-□ SupplierValidation.m
+□ Power Query Data Quality Library
 
-□ SalesValidation.m
+---
 
-□ Additional Validation Queries
+## Vision
+
+Reusable Data Quality Framework for Power Query.
+
+Long-term goal:
+
+Power Query Data Quality Library
 
 ---
 
