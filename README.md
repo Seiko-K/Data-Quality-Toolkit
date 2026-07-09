@@ -10,6 +10,12 @@ Built with Power Query (M) for customer, product, supplier, inventory, and resea
 
 ---
 
+## Architecture
+
+![Architecture](images/architecture.svg)
+
+---
+
 ## Features
 
 ✓ Remove Duplicates
