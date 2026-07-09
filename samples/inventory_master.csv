@@ -1,0 +1,12 @@
+InventoryID,ProductID,Warehouse,Quantity
+1,1,Tokyo,100
+2,2,Osaka,50
+2,2,Osaka,50
+3,,Tokyo,20
+4,4,,30
+5,5,Nagoya,-10
+6,6,Fukuoka,0
+7,7,Sapporo,15
+8,8,Tokyo,
+9,9,Osaka,200
+10,10,Nagoya,-5
