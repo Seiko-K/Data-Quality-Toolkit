@@ -46,6 +46,31 @@ Built with Power Query (M) for customer, product, supplier, inventory, and resea
 
 ---
 
+## How It Works
+
+```text
+Input CSV
+      │
+      ▼
+Power Query Validation
+      │
+      ▼
+Validation Rules
+      │
+      ▼
+Validation Status
+      │
+      ▼
+Issue Reason
+      │
+      ▼
+Validated Output
+```
+
+The toolkit applies reusable validation rules to structured datasets and generates standardized validation results that can be reused across Business Operations, Data Analytics, and Research workflows.
+
+---
+
 ## Example Use Cases
 
 ### Customer Master Validation
@@ -113,6 +138,8 @@ samples/
     supplier_master.csv
     inventory_master.csv
     research_metadata.csv
+
+images/
 
 README.md
 
@@ -409,7 +436,7 @@ Validation scenarios
 
 Reusable Data Quality Framework for Power Query.
 
-Designed as a growing library of reusable validation modules for Business Operations, Data Analytics, and Data Engineering workflows.
+Designed as a growing library of reusable validation modules for Business Operations, Data Analytics, Data Engineering, and Research workflows.
 
 Long-term goal:
 
