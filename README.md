@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.4-blue)
+![Version](https://img.shields.io/badge/version-v0.5-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -6,7 +6,7 @@
 
 Reusable Power Query toolkit for data cleaning, validation, and transformation workflows.
 
-Built with Power Query (M) for customer, product, supplier, and research datasets.
+Built with Power Query (M) for customer, product, supplier, inventory, and research datasets.
 
 ---
 
@@ -32,11 +32,17 @@ Built with Power Query (M) for customer, product, supplier, and research dataset
 
 ✓ Reusable Validation Pipelines
 
+✓ Customer Data Validation
+
+✓ Product Data Validation
+
+✓ Supplier Validation
+
+✓ Inventory Validation
+
 ✓ Research Metadata Validation
 
 ✓ DOI Quality Checks
-
-✓ Supplier Validation
 
 ---
 
@@ -70,6 +76,15 @@ Built with Power Query (M) for customer, product, supplier, and research dataset
 - Validation status generation
 - Supplier data quality checks
 
+### Inventory Validation
+
+- Duplicate inventory detection
+- Missing product IDs
+- Missing warehouse information
+- Invalid inventory quantities
+- Validation status generation
+- Inventory data quality checks
+
 ### Research Metadata Validation
 
 - DOI parsing
@@ -88,14 +103,16 @@ Built with Power Query (M) for customer, product, supplier, and research dataset
 queries/
     CustomerValidation.m
     ProductValidation.m
-    ResearchMetadataValidation.m
     SupplierValidation.m
+    InventoryValidation.m
+    ResearchMetadataValidation.m
 
 samples/
     customer_master.csv
     product_catalog.csv
-    research_metadata.csv
     supplier_master.csv
+    inventory_master.csv
+    research_metadata.csv
 
 README.md
 
@@ -165,6 +182,27 @@ Location
 
 ```text
 queries/SupplierValidation.m
+```
+
+---
+
+### InventoryValidation.m
+
+Features
+
+- Trim whitespace
+- Convert empty values to null
+- Detect duplicate InventoryID
+- Detect missing ProductID
+- Detect missing Warehouse
+- Detect invalid quantities
+- Add validation status flags
+- Generate issue reason messages
+
+Location
+
+```text
+queries/InventoryValidation.m
 ```
 
 ---
@@ -252,6 +290,26 @@ Validation scenarios
 
 ---
 
+### inventory_master.csv
+
+Example fields
+
+- InventoryID
+- ProductID
+- Warehouse
+- Quantity
+
+Validation scenarios
+
+- Duplicate InventoryID
+- Missing ProductID
+- Missing Warehouse
+- Invalid Quantity
+- Validation Status
+- Issue Reason Generation
+
+---
+
 ### research_metadata.csv
 
 Example fields
@@ -313,10 +371,6 @@ Validation scenarios
 
 ## Roadmap
 
-### v0.5
-
-□ InventoryValidation.m
-
 ### v0.6
 
 □ InvoiceValidation.m
@@ -329,7 +383,11 @@ Validation scenarios
 
 □ SalesValidation.m
 
-### Future
+### v0.9
+
+□ EmployeeValidation.m
+
+### v1.0
 
 □ Shared Validation Functions
 
@@ -351,9 +409,11 @@ Validation scenarios
 
 Reusable Data Quality Framework for Power Query.
 
+Designed as a growing library of reusable validation modules for Business Operations, Data Analytics, and Data Engineering workflows.
+
 Long-term goal:
 
-Power Query Data Quality Library
+**Power Query Data Quality Library**
 
 ---
 
