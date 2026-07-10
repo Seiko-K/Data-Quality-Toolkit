@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-v0.5-blue)
+![Version](https://img.shields.io/badge/version-v0.6-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -6,7 +6,7 @@
 
 Reusable Power Query toolkit for data cleaning, validation, and transformation workflows.
 
-Built with Power Query (M) for customer, product, supplier, inventory, and research datasets.
+Built with Power Query (M) for customer, product, supplier, inventory, invoice, and research datasets.
 
 ---
 
@@ -45,6 +45,8 @@ Built with Power Query (M) for customer, product, supplier, inventory, and resea
 ✓ Supplier Validation
 
 ✓ Inventory Validation
+
+✓ Invoice Validation
 
 ✓ Research Metadata Validation
 
@@ -116,6 +118,15 @@ The toolkit applies reusable validation rules to structured datasets and generat
 - Validation status generation
 - Inventory data quality checks
 
+### Invoice Validation
+
+- Duplicate invoice detection
+- Missing customer IDs
+- Missing invoice dates
+- Invalid invoice amounts
+- Validation status generation
+- Invoice quality checks
+
 ### Research Metadata Validation
 
 - DOI parsing
@@ -136,6 +147,7 @@ queries/
     ProductValidation.m
     SupplierValidation.m
     InventoryValidation.m
+    InvoiceValidation.m
     ResearchMetadataValidation.m
 
 samples/
@@ -143,9 +155,11 @@ samples/
     product_catalog.csv
     supplier_master.csv
     inventory_master.csv
+    invoice_master.csv
     research_metadata.csv
 
 images/
+    architecture.svg
 
 README.md
 
@@ -236,6 +250,27 @@ Location
 
 ```text
 queries/InventoryValidation.m
+```
+
+---
+
+### InvoiceValidation.m
+
+Features
+
+- Trim whitespace
+- Convert empty values to null
+- Detect duplicate InvoiceID
+- Detect missing CustomerID
+- Detect missing InvoiceDate
+- Detect invalid invoice amounts
+- Add validation status flags
+- Generate issue reason messages
+
+Location
+
+```text
+queries/InvoiceValidation.m
 ```
 
 ---
@@ -343,6 +378,26 @@ Validation scenarios
 
 ---
 
+### invoice_master.csv
+
+Example fields
+
+- InvoiceID
+- CustomerID
+- InvoiceDate
+- Amount
+
+Validation scenarios
+
+- Duplicate InvoiceID
+- Missing CustomerID
+- Missing InvoiceDate
+- Invalid Amount
+- Validation Status
+- Issue Reason Generation
+
+---
+
 ### research_metadata.csv
 
 Example fields
@@ -403,10 +458,6 @@ Validation scenarios
 ---
 
 ## Roadmap
-
-### v0.6
-
-□ InvoiceValidation.m
 
 ### v0.7
 
