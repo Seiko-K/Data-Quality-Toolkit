@@ -161,6 +161,9 @@ samples/
 images/
     architecture.svg
 
+shared/
+    .gitkeep
+
 README.md
 
 LICENSE
@@ -300,8 +303,6 @@ queries/ResearchMetadataValidation.m
 
 ### customer_master.csv
 
-Example fields
-
 - CustomerID
 - Name
 - Email
@@ -316,8 +317,6 @@ Validation scenarios
 ---
 
 ### product_catalog.csv
-
-Example fields
 
 - ProductID
 - SKU
@@ -339,8 +338,6 @@ Validation scenarios
 
 ### supplier_master.csv
 
-Example fields
-
 - SupplierID
 - SupplierName
 - Email
@@ -360,8 +357,6 @@ Validation scenarios
 
 ### inventory_master.csv
 
-Example fields
-
 - InventoryID
 - ProductID
 - Warehouse
@@ -380,8 +375,6 @@ Validation scenarios
 
 ### invoice_master.csv
 
-Example fields
-
 - InvoiceID
 - CustomerID
 - InvoiceDate
@@ -399,8 +392,6 @@ Validation scenarios
 ---
 
 ### research_metadata.csv
-
-Example fields
 
 - DOI
 - Title
@@ -457,6 +448,25 @@ Validation scenarios
 
 ---
 
+## Future Shared Functions
+
+The toolkit is evolving into a reusable Power Query validation framework.
+
+Planned shared components:
+
+```text
+shared/
+
+TrimText.m
+EmptyToNull.m
+BuildValidationStatus.m
+BuildIssueReason.m
+```
+
+These reusable functions will eliminate duplicated logic, simplify maintenance, and provide a consistent validation workflow across every validation module.
+
+---
+
 ## Roadmap
 
 ### v0.7
@@ -485,19 +495,23 @@ Validation scenarios
 
 □ Batch Processing
 
+### Future
+
 □ Power Query Data Quality Library
+
+□ Publish reusable shared functions
+
+□ GitHub Pages documentation
+
+□ Example output gallery
 
 ---
 
 ## Vision
 
-Reusable Data Quality Framework for Power Query.
+Data Quality Toolkit is designed to become a reusable Power Query validation framework for Business Operations, Data Analytics, Data Engineering, and Research workflows.
 
-Designed as a growing library of reusable validation modules for Business Operations, Data Analytics, Data Engineering, and Research workflows.
-
-Long-term goal:
-
-**Power Query Data Quality Library**
+The long-term goal is to build an open, reusable **Power Query Data Quality Library** that helps organizations standardize data quality validation across projects.
 
 ---
 
