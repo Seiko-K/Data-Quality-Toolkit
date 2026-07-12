@@ -1,0 +1,11 @@
+InvoiceID,CustomerID,InvoiceDate,Amount,IsDuplicateInvoiceID,MissingCustomerID,MissingInvoiceDate,InvalidAmount,ValidationStatus,IssueReason
+INV-001,1,2026-07-01,12000,false,false,false,false,Valid,
+INV-002,2,2026-07-02,8500,true,false,false,false,Invalid,Duplicate InvoiceID
+INV-002,2,2026-07-02,8500,true,false,false,false,Invalid,Duplicate InvoiceID
+INV-003,,2026-07-03,5000,false,true,false,false,Invalid,Missing CustomerID
+INV-004,4,,15000,false,false,true,false,Invalid,Missing InvoiceDate
+INV-005,5,2026-07-05,0,false,false,false,true,Invalid,Invalid Amount
+INV-006,6,2026-07-06,-3000,false,false,false,true,Invalid,Invalid Amount
+INV-007,7,2026-07-07,22000,false,false,false,false,Valid,
+INV-008,8,2026-07-08,,false,false,false,true,Invalid,Invalid Amount
+INV-009,9,2026-07-09,17500,false,false,false,false,Valid,
