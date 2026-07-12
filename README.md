@@ -79,6 +79,33 @@ The toolkit applies reusable validation rules to structured datasets and generat
 
 ---
 
+## Sample Output
+
+Example workflow:
+
+```text
+samples/invoice_master.csv
+        │
+        ▼
+InvoiceValidation.m
+        │
+        ▼
+samples/output/invoice_validation_result.csv
+```
+
+The sample output demonstrates how validation columns are added while preserving the original dataset.
+
+Generated columns include:
+
+- IsDuplicateInvoiceID
+- MissingCustomerID
+- MissingInvoiceDate
+- InvalidAmount
+- ValidationStatus
+- IssueReason
+
+---
+
 ## Example Use Cases
 
 ### Customer Master Validation
@@ -157,6 +184,9 @@ samples/
     inventory_master.csv
     invoice_master.csv
     research_metadata.csv
+
+    output/
+        invoice_validation_result.csv
 
 images/
     architecture.svg
