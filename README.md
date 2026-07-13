@@ -192,7 +192,9 @@ images/
     architecture.svg
 
 shared/
-    .gitkeep
+    README.md
+    TrimText.m
+    EmptyToNull.m
 
 README.md
 
@@ -344,8 +346,6 @@ Validation scenarios
 - Missing Email
 - Text normalization
 
----
-
 ### product_catalog.csv
 
 - ProductID
@@ -364,8 +364,6 @@ Validation scenarios
 - Issue Reason Generation
 - Text normalization
 
----
-
 ### supplier_master.csv
 
 - SupplierID
@@ -383,8 +381,6 @@ Validation scenarios
 - Validation Status
 - Issue Reason Generation
 
----
-
 ### inventory_master.csv
 
 - InventoryID
@@ -401,8 +397,6 @@ Validation scenarios
 - Validation Status
 - Issue Reason Generation
 
----
-
 ### invoice_master.csv
 
 - InvoiceID
@@ -418,8 +412,6 @@ Validation scenarios
 - Invalid Amount
 - Validation Status
 - Issue Reason Generation
-
----
 
 ### research_metadata.csv
 
@@ -478,22 +470,25 @@ Validation scenarios
 
 ---
 
-## Future Shared Functions
+## Shared Functions
 
 The toolkit is evolving into a reusable Power Query validation framework.
 
-Planned shared components:
+### Implemented
 
 ```text
-shared/
-
 TrimText.m
 EmptyToNull.m
+```
+
+### Planned
+
+```text
 BuildValidationStatus.m
 BuildIssueReason.m
 ```
 
-These reusable functions will eliminate duplicated logic, simplify maintenance, and provide a consistent validation workflow across every validation module.
+These shared functions reduce duplicated logic, simplify maintenance, and provide a consistent validation workflow across all validation modules.
 
 ---
 
