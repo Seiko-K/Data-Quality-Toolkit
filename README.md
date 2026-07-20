@@ -69,10 +69,7 @@ Business Operations, Data Analytics, and Research workflows.
 Customer Master CSV
         │
         ▼
-Trim Text
-        │
-        ▼
-Convert Empty Values to Null
+NormalizeText
         │
         ▼
 Duplicate Detection
@@ -159,8 +156,7 @@ images/
 
 shared/
     README.md
-    TrimText.m
-    EmptyToNull.m
+    NormalizeText.m
 
 README.md
 LICENSE
@@ -230,10 +226,11 @@ queries/CustomerValidation.m
 
 ### Implemented
 
-``` text
-TrimText.m
-EmptyToNull.m
+```text
+NormalizeText.m
 ```
+
+NormalizeText converts input values to text, trims leading and trailing whitespace, and converts empty strings to null. It provides a single reusable normalization step across all validation modules.
 
 ### Planned
 
@@ -246,6 +243,16 @@ Shared functions reduce duplicated logic and keep validation behavior
 consistent across modules.
 
 ------------------------------------------------------------------------
+
+---
+
+## Development Notes
+
+The toolkit is developed on macOS using static code review and Git-based validation.
+
+Power Query runtime testing is performed in a Windows-compatible Excel environment when available.
+
+This approach keeps the project cross-platform friendly while acknowledging current Power Query Editor limitations on macOS.
 
 ## Roadmap
 

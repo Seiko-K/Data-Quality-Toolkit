@@ -34,59 +34,27 @@ let
             {"CustomerID", "Name", "Email"},
             MissingField.UseNull
         ),
-
-    // Convert values to text and remove leading and trailing whitespace.
-    // 各値を文字列へ変換し、前後の余計な空白を削除する。
-    Trimmed =
+    // Normalize the required customer fields by converting values to text,
+    // trimming leading and trailing whitespace, and converting empty strings to null.
+    // 顧客チェックに必要な各項目を文字列へ変換し、
+    // 前後の空白を削除したうえで、空文字をnullへ統一する。
+    Normalized =
         Table.TransformColumns(
             SelectedColumns,
             {
                 {
                     "CustomerID",
-                    each
-                        if _ = null
-                        then null
-                        else Text.Trim(Text.From(_)),
+                    each NormalizeText(_),
                     type nullable text
                 },
                 {
                     "Name",
-                    each
-                        if _ = null
-                        then null
-                        else Text.Trim(Text.From(_)),
+                    each NormalizeText(_),
                     type nullable text
                 },
                 {
                     "Email",
-                    each
-                        if _ = null
-                        then null
-                        else Text.Trim(Text.From(_)),
-                    type nullable text
-                }
-            }
-        ),
-
-    // Convert empty strings to null values.
-    // 空文字を欠損値であるnullへ統一する。
-    EmptyToNull =
-        Table.TransformColumns(
-            Trimmed,
-            {
-                {
-                    "CustomerID",
-                    each if _ = "" then null else _,
-                    type nullable text
-                },
-                {
-                    "Name",
-                    each if _ = "" then null else _,
-                    type nullable text
-                },
-                {
-                    "Email",
-                    each if _ = "" then null else _,
+                    each NormalizeText(_),
                     type nullable text
                 }
             }
@@ -96,7 +64,7 @@ let
     // 最後まで元のCSVの行順を維持するため、一時的な行番号を追加する。
     AddedRowOrder =
         Table.AddIndexColumn(
-            EmptyToNull,
+            Normalized,
             "__RowOrder",
             1,
             1,
