@@ -8,31 +8,44 @@ let
     Headers =
         Table.PromoteHeaders(Source),
 
-    Trimmed =
+    // Normalize text fields.
+    // 文字列項目を正規化する。
+    Normalized =
         Table.TransformColumns(
             Headers,
             {
-                {"ProductID", Text.Trim},
-                {"SKU", Text.Trim},
-                {"ProductName", Text.Trim},
-                {"Category", Text.Trim},
-                {"Price", Text.Trim}
+                {
+                    "ProductID",
+                    each NormalizeText(_),
+                    type nullable text
+                },
+                {
+                    "SKU",
+                    each NormalizeText(_),
+                    type nullable text
+                },
+                {
+                    "ProductName",
+                    each NormalizeText(_),
+                    type nullable text
+                },
+                {
+                    "Category",
+                    each NormalizeText(_),
+                    type nullable text
+                },
+                {
+                    "Price",
+                    each NormalizeText(_),
+                    type nullable text
+                }
             }
         ),
 
-    EmptyToNull =
-        Table.ReplaceValue(
-            Trimmed,
-            "",
-            null,
-            Replacer.ReplaceValue,
-            {"ProductID", "SKU", "ProductName", "Category", "Price"}
-        ),
 
     AddedPriceNumber =
         Table.AddColumn(
-            EmptyToNull,
-            "PriceNumber",
+            Normalized,            "PriceNumber",
             each try Number.FromText([Price]) otherwise null,
             type nullable number
         ),
