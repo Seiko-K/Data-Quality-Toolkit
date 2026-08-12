@@ -1,0 +1,10 @@
+# macOS system files
+.DS_Store
+**/.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor / OS metadata
+.vscode/
